@@ -22,12 +22,6 @@ h4 {
     font-size: 15px;
 }
 
-
-button {
-    width: 20px;
-    height: 20px;
-}
-
 i {
     font-size: 15px;
 }
@@ -45,6 +39,12 @@ footer p {
 footer p:last-child {
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.yolo{
+    width:auto;
+    padding-top: 0px;
+    
 }
 
 /*_______________ HEADER _______________ */
