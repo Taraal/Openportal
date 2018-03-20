@@ -22,6 +22,9 @@ if(isset($_SESSION['email'])) {
 <body>
     <!--___________________ HEADER ___________________-->
     <header>
+        <div class="disconnection">
+            <a href="#"><img src="img/disconnection.svg" alt="" class="icon"></a>
+        </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
     </header>

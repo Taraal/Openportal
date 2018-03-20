@@ -46,22 +46,22 @@
             <h3>Inscription</h3>
             <form class="form-horizontal" method="POST" action="./../module/traitement-inscription.php">
                 <div class="form-group">
-                    <input type="text" placeholder="Votre prénom" id="prenom_register" name="prenom_register" required>
+                    <input type="text" placeholder="Votre prénom" id="prenom_register" name="prenom_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Votre nom" id="nom_register" name="nom_register" required>
+                    <input type="text" placeholder="Votre nom" id="nom_register" name="nom_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Votre adress email" id="email_register" name="email_register" required>
+                    <input type="email" placeholder="Votre adress email" id="email_register" name="email_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder=" confirmer votre email" id="email2_register" name="email2_register" required>
+                    <input type="email" placeholder=" confirmer votre email" id="email2_register" name="email2_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Votre mot de passe" id="password_register" name="password_register" required>
+                    <input type="password" placeholder="Votre mot de passe" id="password_register" name="password_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="confirmer mot de passe" id="password2_register" name="password2_register" required>
+                    <input type="password" placeholder="confirmer mot de passe" id="password2_register" name="password2_register" class="form-control" required>
                 </div>
                 <?php  if(isset($_GET['error'])) { echo $_GET['error']; } ?>
                 <?php  if(isset($_GET['good'])) { echo $_GET['good']; } ?>
