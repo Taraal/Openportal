@@ -28,77 +28,71 @@
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
-    <main>
-        <section class="courses_taught-list">
-            <h3 class="board_title">Matières enseignées</h3>
-            <div class="courses_taught-list">
+    <main class="main-board">
+        <div class="left_list">
+            <section class="courses_followed-list">
+                <h3 class="board_title">Mes cours</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                    </ul>
+            </section>
+            <section class="courses_taught-list">
+                <h3 class="board_title">Matières enseignées</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item course_taught"><a href="#">Programmation Web</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                    </ul>
+            </section>
+        </div>
+        <div class="right_list">
+                    <section class="courses-list">
+                <h3 class="board_title">Compétences</h3>
                 <ul class="list-group">
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                    <li class="list-group-item course"><a href="#">Compétence</a></li>
                 </ul>
+                <form action="">
+                        <input type="search" name="" id="search_courses" placeholder="Rechercher compétence">
+                        <input type="submit" value="Rechercher">
+                </form>
+            </section>
+        </div>
+        <section class="chat">
+            <div class="chat_button">
+                <a href=""><img src="img/speech-bubble.svg" class="icon" alt="chat"></a>
             </div>
         </section>
-        <section class="courses_followed-list">
-            <h3 class="board_title">Mes cours</h3>
-            <ul class="list-group">
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                </ul>
-        </section>
-        <section class="courses-list">
-            <h3 class="board_title">Compétences</h3>
-            <ul class="list-group">
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-            </ul>
-            <form action="">
-                    <input type="search" name="" id="" placeholder="rechercher compétence">
-                    <input type="submit" value="Rechercher">
-            </form>
-        </section>
-        <section class="chat">
-
-        </section>
-        <div class="chat_button">
-            <a href=""><img src="img/speech-bubble.svg" class="icon" alt="chat"></a>
-        </div>
     </main>
+    <footer>
+        <p>Alexandre CAILLER - Elian BOURDU</p>
+        <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
+        <p>Workshop 2018 - B1</p>
+    </footer>
     <script src="js/main.js"></script>
 </body>
 

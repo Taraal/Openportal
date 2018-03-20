@@ -32,7 +32,7 @@ a {
 
 footer {
     padding: 20px;
-    background-color:  #5191ce;
+    background-color: #5191ce;
 }
 
 footer p {
@@ -46,6 +46,7 @@ footer p:last-child {
     font-weight: 700;
     text-transform: uppercase;
 }
+
 
 /*_______________ HEADER _______________ */
 
@@ -64,6 +65,7 @@ footer p:last-child {
 .baseline {
     font-size: 15px;
 }
+
 
 /*______ CONNECTION - REGISTRATION  ______*/
 
@@ -103,6 +105,7 @@ input[type="submit"] {
     color: #f5f5f5;
 }
 
+
 /*________________ PROFILE  ________________*/
 
 .avatar {
@@ -115,7 +118,8 @@ input[type="submit"] {
     text-align: center;
 }
 
-.fisrtname, .lastname {
+.fisrtname,
+.lastname {
     display: inline;
     font-size: 18px;
 }
@@ -135,18 +139,108 @@ table.student {
 }
 
 table.student th,
-table.student  td  {
-    font-size: 14px; 
+table.student td {
+    font-size: 14px;
     border: 1px solid #fe650c;
 }
 
 table.teacher {
-     border: 2px solid #5191ce;
+    border: 2px solid #5191ce;
     border-radius: 20px;
 }
 
 table.teacher th,
-table.teacher td  {
+table.teacher td {
     font-size: 14px;
     border: 1px solid #5191ce;
+}
+
+
+/*________________  BOARD  ________________*/
+
+.main-board {
+    padding-bottom: 80%;
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 10px;
+}
+
+section h3 {
+    text-align: center;
+}
+
+div.left_list {
+    position: absolute;
+    left: 100px;
+    width: 30%;
+    text-align: center;
+    min-height: 100%;
+    margin: 10px;
+}
+
+div.right_list {
+    position: absolute;
+    right: 100px;
+    width: 30%;
+    text-align: center;
+    margin: 10px;
+}
+
+section.courses_followed-list,
+section.courses_taught-list,
+section.courses-list {
+    margin-top: 50px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.course {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #3d3d3d;
+}
+
+.course_followed {
+    width: 50%;
+    background-color: #fe650c;
+}
+
+.course_taught {
+    width: 50%;
+    background-color: #5191ce;
+}
+
+.course,
+.course_followed,
+.course_taught {
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.course a,
+.course_followed a,
+.course_taught a {
+    font-size: 12px;
+}
+
+.course a {
+    text-align: center;
+    color: #f5f5f5;
+}
+
+.course_followed a,
+.course_taught a {
+    text-align: center;
+    color: black;
+}
+
+#search_courses {
+    border-radius: 5px;
+    border: 1px solid #3d3d3d;
+    padding: 1px;
+    text-align: center;
 }
