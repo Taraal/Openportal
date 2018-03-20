@@ -44,26 +44,14 @@ if(isset($_SESSION['email'])) {
                             <th scope="col">Liste des matières</th>
                         </tr>
                     </thead>
-                    <tr>
-                        <td>Sylouan Corfa</td>
-                        <td>Compétence</td>
-                    </tr>
-                    <tr>
-                        <td>Sylouan Corfa</td>
-                        <td>Compétence</td>
-                    </tr>
-                    <tr>
-                        <td>Sylouan Corfa</td>
-                        <td>Compétence</td>
-                    </tr>
-                    <tr>
-                        <td>Sylouan Corfa</td>
-                        <td>Compétence</td>
-                    </tr>
-                    <tr>
-                        <td>Sylouan Corfa</td>
-                        <td>Compétence</td>
-                    </tr>
+                    <?php 
+                    while ($a <= 10) {
+                        echo '<tr>
+                                <td>'.$row['Prenom'] $row['Nom'] .'</td>
+                                <td>'.$row['intitule'].'</td>
+                            </tr>';
+                    }
+                    ?>
                 </table>
             </div>
             <div class="teacher">
@@ -73,21 +61,14 @@ if(isset($_SESSION['email'])) {
                         <tr>
                             <th scope="col">Liste des matières</th>
                         </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
+                        <?php 
+                            while ($a <= 10) {
+                                
+                                echo '<tr>
+                                    <td>'.$row['intitule'].'</td>
+                                </tr>';
+                            }
+                        ?>
                     </thead>
                 </table>
             </div>
