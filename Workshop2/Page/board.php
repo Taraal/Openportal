@@ -22,7 +22,7 @@
     <header>
         <div class="disconnection">
             <a href="#">
-                <img src="img/disconnection.svg" alt="" class="icon">
+                <img src="img/disconnection.svg" alt="" class="disconnection_icon">
             </a>
         </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
@@ -56,8 +56,12 @@
             </section>
         </div>
         <div class="right_list">
-                    <section class="courses-list">
+            <section class="courses-list">
                 <h3 class="board_title">Compétences</h3>
+                <form action="" id="search-courses">
+                        <input type="search" name="" id="search_courses" placeholder="Compétence">
+                        <input type="submit" value="Rechercher" id="search_submit">
+                </form>
                 <ul class="list-group">
                     <li class="list-group-item course"><a href="#">Compétence</a></li>
                     <li class="list-group-item course"><a href="#">Compétence</a></li>
@@ -76,18 +80,14 @@
                     <li class="list-group-item course"><a href="#">Compétence</a></li>
                     <li class="list-group-item course"><a href="#">Compétence</a></li>
                 </ul>
-                <form action="">
-                        <input type="search" name="" id="search_courses" placeholder="Rechercher compétence">
-                        <input type="submit" value="Rechercher">
-                </form>
             </section>
         </div>
-        <section class="chat">
+    </main>
+    <section class="chat">
             <div class="chat_button">
-                <a href=""><img src="img/speech-bubble.svg" class="icon" alt="chat"></a>
+                <a href=""><img src="img/speech-bubble.svg" class="speach_icon" alt="chat"></a>
             </div>
         </section>
-    </main>
     <footer>
         <p>Alexandre CAILLER - Elian BOURDU</p>
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
