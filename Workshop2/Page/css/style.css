@@ -41,11 +41,6 @@ footer p:last-child {
     text-transform: uppercase;
 }
 
-.yolo{
-    width:auto;
-    padding-top: 0px;
-    
-}
 
 /*_______________ HEADER _______________ */
 
@@ -97,6 +92,7 @@ footer p:last-child {
 .lastname {
     text-transform: uppercase;
 }
+
 
 table {
     text-align: center;
