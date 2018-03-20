@@ -304,12 +304,15 @@ section.courses-list {
     width: 40%;
     height: 450px;
     border: 2px solid #3d3d3d;
-    /* padding: 0 20px; */
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
 }
 
 .chat_title {
     background-color: #5191ce;
     padding: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .receive, .send {
