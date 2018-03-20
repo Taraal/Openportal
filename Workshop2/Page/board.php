@@ -32,60 +32,60 @@
         <section class="courses_taught-list">
             <h3 class="board_title">Matières enseignées</h3>
             <div class="courses_taught-list">
-                <ul>
-                    <li><a href="#">Compétence enseignée</a></li>
-                    <li><a href="#">Compétence enseignée</a></li>
-                    <li><a href="#">Compétence enseignée</a></li>
-                    <li><a href="#">Compétence enseignée</a></li>
-                    <li><a href="#">Compétence enseignée</a></li>
-                    <li><a href="#">Compétence enseignée</a></li>
-                    <li><a href="#">Compétence enseignée</a></li>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
+                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
+                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
+                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
+                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
+                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
+                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
                 </ul>
             </div>
         </section>
         <section class="courses_followed-list">
             <h3 class="board_title">Mes cours</h3>
-            <ul>
-                    <li><a href="#">Compétence suivie</a></li>
-                    <li><a href="#">Compétence suivie</a></li>
-                    <li><a href="#">Compétence suivie</a></li>
-                    <li><a href="#">Compétence suivie</a></li>
-                    <li><a href="#">Compétence suivie</a></li>
-                    <li><a href="#">Compétence suivie</a></li>
-                    <li><a href="#">Compétence suivie</a></li>
+            <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
+                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
+                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
+                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
+                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
+                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
+                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
                 </ul>
         </section>
         <section class="courses-list">
             <h3 class="board_title">Compétences</h3>
-            <ul>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
-                <li><a href="#">Compétence</a></li>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
+                <li class="list-group-item"><a href="#">Compétence</a></li>
             </ul>
             <form action="">
                     <input type="search" name="" id="" placeholder="rechercher compétence">
