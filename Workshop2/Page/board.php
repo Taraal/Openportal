@@ -5,6 +5,16 @@ session_start();
 if(isset($_SESSION['email'])) {
 
 ?>
+<?php 
+
+$connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
+
+$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$statement = $connect->query("SELECT * FROM matieres LIMIT 0, 10");
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,7 +38,7 @@ if(isset($_SESSION['email'])) {
 <body>
     <header>
         <div class="disconnection">
-            <a href="#">
+            <a href="../module/traitement-deconnection.php">
                 <img src="img/disconnection.svg" alt="" class="icon">
             </a>
         </div>
@@ -65,38 +75,23 @@ if(isset($_SESSION['email'])) {
         <section class="courses-list">
             <h3 class="board_title">Compétences</h3>
             <ul class="list-group">
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
-                <li class="list-group-item"><a href="#">Compétence</a></li>
+            <?php
+           
+            while ($matiere = $statement->fetch()) {
+                
+                echo  "<li class='list-group-item'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'>".$matiere['intitule']."</a></li>";
+            }
+            
+            $statement->closeCursor();
+            
+            ?>
             </ul>
             <form action="">
-                    <input type="search" name="" id="" placeholder="rechercher compétence">
-                    <input type="submit" value="Rechercher">
+                <div class="form-group search-box">
+                    <input type="text" class="form-control" name="search-competance" id="search-competance" placeholder="rechercher compétence" autocomplete="off">
+                    <div class="result">
+                    </div>
+                </div>
             </form>
         </section>
         <section class="chat">

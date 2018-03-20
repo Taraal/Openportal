@@ -8,7 +8,7 @@ $(document).ready(function(){
 
         if(inputVal.length){
 
-            $.get("search.php", {q: inputVal}).done(function(data){
+            $.get("traitement-recherche.php", {q: inputVal}).done(function(data){
 
                 resultDropdown.html(data);
 

@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <input type="submit" value="Se connecter" name="connection" id="connection">
                 </div>
-                <?php  if(isset($_GET['error1'])) { echo $_GET['error1']; } ?>
+                <?php  if(isset($_GET['error1'])) { echo $_GET['error1'].'.<br><br>'; } ?>
             </form>
             <p class="not_member">Pas encore membre ?</p>
             <a href="#" id="not_member">S'inscrire</a>

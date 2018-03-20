@@ -7,7 +7,7 @@ try{
 }
 try{
     if(isset($_REQUEST['q'])){
-        $sql = "SELECT * FROM matieres WHERE intitulé LIKE :q ";
+        $sql = "SELECT * FROM matieres WHERE intitule LIKE :q ";
         $statement = $connect->prepare($sql);
         $q = $_REQUEST['q'] . '%';
         $statement->bindParam(':q', $q);
