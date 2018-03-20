@@ -13,5 +13,4 @@ $insert = $connect->prepare("INSERT INTO chat VALUES (?) ");
 $insert->execute(array($message));
 
 
-
 ?>

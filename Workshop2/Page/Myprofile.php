@@ -7,6 +7,9 @@ if(isset($_SESSION['email'])) {
 <!DOCTYPE html>
 <html lang="fr">
 
+<!DOCTYPE html>
+<html lang="fr">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +25,9 @@ if(isset($_SESSION['email'])) {
 <body>
     <!--___________________ HEADER ___________________-->
     <header>
+        <div class="disconnection">
+            <a href="#"><img src="img/disconnection.svg" alt="" class="icon"></a>
+        </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
@@ -44,14 +50,26 @@ if(isset($_SESSION['email'])) {
                             <th scope="col">Liste des matières</th>
                         </tr>
                     </thead>
-                    <?php 
-                    while ($a <= 10) {
-                        echo '<tr>
-                                <td>'.$row['Prenom'] $row['Nom'] .'</td>
-                                <td>'.$row['intitule'].'</td>
-                            </tr>';
-                    }
-                    ?>
+                    <tr>
+                        <td>Sylouan Corfa</td>
+                        <td>Compétence</td>
+                    </tr>
+                    <tr>
+                        <td>Sylouan Corfa</td>
+                        <td>Compétence</td>
+                    </tr>
+                    <tr>
+                        <td>Sylouan Corfa</td>
+                        <td>Compétence</td>
+                    </tr>
+                    <tr>
+                        <td>Sylouan Corfa</td>
+                        <td>Compétence</td>
+                    </tr>
+                    <tr>
+                        <td>Sylouan Corfa</td>
+                        <td>Compétence</td>
+                    </tr>
                 </table>
             </div>
             <div class="teacher">
@@ -61,14 +79,21 @@ if(isset($_SESSION['email'])) {
                         <tr>
                             <th scope="col">Liste des matières</th>
                         </tr>
-                        <?php 
-                            while ($a <= 10) {
-                                
-                                echo '<tr>
-                                    <td>'.$row['intitule'].'</td>
-                                </tr>';
-                            }
-                        ?>
+                        <tr>
+                            <td>Compétence</td>
+                        </tr>
+                        <tr>
+                            <td>Compétence</td>
+                        </tr>
+                        <tr>
+                            <td>Compétence</td>
+                        </tr>
+                        <tr>
+                            <td>Compétence</td>
+                        </tr>
+                        <tr>
+                            <td>Compétence</td>
+                        </tr>
                     </thead>
                 </table>
             </div>
