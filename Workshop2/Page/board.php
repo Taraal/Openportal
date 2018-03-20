@@ -83,9 +83,34 @@
             </section>
         </div>
     </main>
+    <section class="chat-window">
+            <h3 class="chat_title">CHAT</h3>
+            <div class="send">
+                <h4 class="name_sender">Elian Bourdu</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="receive">
+                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="receive">
+                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="send">
+                <h4 class="name_sender">Elian Bourdu</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="send-message-container">
+                <form action="" method="post">
+                    <input type="text" name="" id="send_msg" placeholder="Votre message" class="form-control">
+                    <button class="btn-send-msg" type="submit">Envoyer</button>
+                </form>
+            </div>
+     </section>
     <section class="chat">
             <div class="chat_button">
-                <a href=""><img src="img/speech-bubble.svg" class="speach_icon" alt="chat"></a>
+                <a href=""><img src="img/speech-bubble.svg" id="speach_icon" alt="chat"></a>
             </div>
         </section>
     <footer>
