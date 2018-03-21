@@ -122,7 +122,8 @@ $statement = $connect->query("SELECT * FROM matieres");
                 </form>
             </div>
      </section>
-    <section class="chat">
+   
+     <section class="chat">
             <div class="chat_button">
                 <img src="img/speech-bubble.svg" id="speach_icon" alt="chat">
             </div>
