@@ -54,25 +54,13 @@ $statement = $connect->query("SELECT * FROM matieres");
             <section class="courses_followed-list">
                 <h3 class="board_title">Mes cours</h3>
                     <ul class="list-group">
-                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        
                     </ul>
             </section>
             <section class="courses_taught-list">
                 <h3 class="board_title">Matières enseignées</h3>
                     <ul class="list-group">
-                        <li class="list-group-item course_taught"><a href="#">Programmation Web</a></li>
-                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        
                     </ul>
             </section>
         </div>
@@ -83,14 +71,14 @@ $statement = $connect->query("SELECT * FROM matieres");
                         <input type="text" name="category" id="categoryfilter" placeholder="Compétence">
                         <!--input type="submit" value="Rechercher" id="search_submit"-->
                 </form>
-                <ul class="list-group filter" id="filter">
+                <ul class="list-group filter">
                 <?php
            
            while ($matiere = $statement->fetch()) {
                
-               echo  "<li class='list-group-item'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'><span>".$matiere['intitule']."</span></a></li>";
+            echo  "<li class='list-group-item course'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'><span>".$matiere['intitule']."</span></a></li>";
 
-           }
+        }
            
            $statement->closeCursor();
            
@@ -128,6 +116,7 @@ $statement = $connect->query("SELECT * FROM matieres");
             <div class="chat_button">
                 <img src="img/speech-bubble.svg" id="speach_icon" alt="chat">
             </div>
+            <a href="Myprofile.php">Mypofil</a>
         </section>
     <footer>
         <p>Alexandre CAILLER - Elian BOURDU</p>
@@ -136,7 +125,7 @@ $statement = $connect->query("SELECT * FROM matieres");
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script>    
 </body>
 
 </html>
