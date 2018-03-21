@@ -25,6 +25,7 @@
         </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
+        <p class="baseline">Osez aller au-delà de vous-même</p>
     </header>
     <main class="main-board">
         <div class="left_list">

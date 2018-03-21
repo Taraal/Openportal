@@ -1,3 +1,5 @@
+//_________________ BUTTONS EVENTS _________________
+
 $('#not_member').click(function () {
     $('.Inscription').slideDown("slow");
 });
@@ -5,3 +7,4 @@ $('#not_member').click(function () {
 $('#speach_icon').click(function () {
     $('.chat-window').fadeToggle("fast");
   });
+
