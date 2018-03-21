@@ -7,7 +7,7 @@ if(isset($_SESSION['email'])) {
 ?>
 <?php 
 
-$connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=workshop2;charset=utf8", "root", "");
 
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -21,21 +21,19 @@ $statement = $connect->query("SELECT * FROM matieres");
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OpenPortal - Profil</title>
+    <title>OpenPortal - Compétences</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Aldrich|Questrial" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <style>
     .highlighted{
-        background-color: #28A6CB; color:#FFF;
+        
     }
     </style>
 </head>
@@ -43,12 +41,13 @@ $statement = $connect->query("SELECT * FROM matieres");
 <body>
     <header>
         <div class="disconnection">
-            <a href="#">
+            <a href="../module/traitement-deconnection.php">
                 <img src="img/disconnection.svg" alt="" class="disconnection_icon">
             </a>
         </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
+        <p class="baseline">Osez aller au-delà de vous-même</p>
     </header>
     <main class="main-board">
         <div class="left_list">
@@ -73,7 +72,7 @@ $statement = $connect->query("SELECT * FROM matieres");
                         <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
                         <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
                         <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
-                        <li class="list-group-item course_taught"><a href="#"><span>Compétence</span></a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
                     </ul>
             </section>
         </div>
@@ -90,6 +89,7 @@ $statement = $connect->query("SELECT * FROM matieres");
            while ($matiere = $statement->fetch()) {
                
                echo  "<li class='list-group-item'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'><span>".$matiere['intitule']."</span></a></li>";
+
            }
            
            $statement->closeCursor();
@@ -99,7 +99,7 @@ $statement = $connect->query("SELECT * FROM matieres");
             </section>
         </div>
     </main>
-    <section class="chat-window" style="display: none;">
+    <section class="chat-window">
             <h3 class="chat_title">CHAT</h3>
             <div class="send">
                 <h4 class="name_sender">Elian Bourdu</h4>
@@ -126,7 +126,7 @@ $statement = $connect->query("SELECT * FROM matieres");
      </section>
     <section class="chat">
             <div class="chat_button">
-                <a href=""><img src="img/speech-bubble.svg" id="speach_icon" alt="chat"></a>
+                <img src="img/speech-bubble.svg" id="speach_icon" alt="chat">
             </div>
         </section>
     <footer>
@@ -134,10 +134,9 @@ $statement = $connect->query("SELECT * FROM matieres");
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>
     </footer>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/main.js"></script>
-
 </body>
 
 </html>

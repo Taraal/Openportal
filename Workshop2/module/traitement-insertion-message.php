@@ -2,7 +2,7 @@
 
 $roomid = $_GET['roomid'];
 
-$connect =  new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=workshop2;charset=utf8", "root", "");
 
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

@@ -70,14 +70,7 @@ if(isset($_SESSION['Email'])) {
                             <th scope="col">Professeur</th>
                         </tr>
                     </thead>
-                    <?php 
-                    while ($a <= 10) {
-                        echo '<tr>
-                                <td>'.$row['Prenom'] $row['Nom'] .'</td>
-                                <td>'.$row['intitule'].'</td>
-                            </tr>';
-                    }
-                    ?>
+                    
                 </table>
             </div>
             <div class="teacher">

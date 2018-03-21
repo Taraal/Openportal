@@ -11,9 +11,9 @@ $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
 
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
 
-    $sql = "SELECT * FROM matieres WHERE id = ". $_GET['id'] ."";
+    $sql1 = "SELECT * FROM matieres WHERE id = ". $_GET['id'] ."";
 
-    $statement = $connect->prepare($sql);
+    $statement = $connect->prepare($sql1);
 
     $statement->bindParam(':id', $id);
 
@@ -25,8 +25,11 @@ unset($statement);
 
 unset($connect);
 
+    $sql2 = "SELECT * FROM enseignants WHERE id_matiere = ".$_GET['id']."";
 
+    
 
+    $sql3 = "SELECT * FROM utilisateurs WHERE id = ".$enseignant['id_user'].""
 
 ?>
 
@@ -54,14 +57,15 @@ unset($connect);
     <header>
         <div class="disconnection">
             <a href="../module/traitement-deconnection.php">
-                <img src="img/disconnection.svg" alt="" class="icon">
+                <img src="img/disconnection.svg" alt="" class="disconnection_icon">
             </a>
         </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1><?php echo $matiere['intitule'];?></h1>
     </header>
     <main>
-        <h2>Les Proffesseur ensseignant cette matiere</h2><hr style="width: 32%">
+        <h2>Les Proffesseur ensseignant cette matiere<hr style="width: 50%"></h2>
+
     </main>
     <script src="js/main.js"></script>
 </body>
