@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="main.js"></script>
+        <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -52,16 +56,16 @@
                     <input type="text" placeholder="Votre nom" id="nom_register" name="nom_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Votre adress email" id="email_register" name="email_register" class="form-control" required>
+                    <input type="email" placeholder="Votre adresse email" id="email_register" name="email_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder=" confirmer votre email" id="email2_register" name="email2_register" class="form-control" required>
+                    <input type="email" placeholder=" Confirmer votre email" id="email2_register" name="email2_register" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <input type="password" placeholder="Votre mot de passe" id="password_register" name="password_register" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="confirmer mot de passe" id="password2_register" name="password2_register" class="form-control" required>
+                    <input type="password" placeholder="Confirmer mot de passe" id="password2_register" name="password2_register" class="form-control" required>
                 </div>
                 <?php  if(isset($_GET['error'])) { echo $_GET['error']; } ?>
                 <?php  if(isset($_GET['good'])) { echo $_GET['good']; } ?>
@@ -71,6 +75,7 @@
             </form>
         </div>
     </main>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
