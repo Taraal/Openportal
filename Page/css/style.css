@@ -1,0 +1,121 @@
+/*____________ GENERAL RULES ____________ */
+
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: 'Questrial', sans-serif;
+}
+
+main {
+    padding: 30px;
+}
+
+h1,
+h3,
+h4 {
+    font-family: 'Aldrich', sans-serif;
+}
+
+h4 {
+    font-size: 15px;
+}
+
+i {
+    font-size: 15px;
+}
+
+footer {
+    padding: 5px;
+    background-color:  #fe650c;
+}
+
+footer p {
+    margin: 0;
+    font-size: 10px;
+}
+
+footer p:last-child {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+/*_______________ HEADER _______________ */
+
+#logo {
+    width: 100px;
+    margin: 20px;
+}
+
+.title {
+    font-family: 'Aldrich', sans-serif;
+    text-align: center;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.baseline {
+    font-size: 15px;
+}
+
+/*______ CONNECTION - REGISTRATION  ______*/
+
+.connection {
+    background-color: #5191ce;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.inscription {
+    display: none;
+}
+
+/*________________ PROFILE  ________________*/
+
+.avatar {
+    width: 100px;
+    border-radius: 50px;
+}
+
+.identity {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.fisrtname, .lastname {
+    display: inline;
+    font-size: 18px;
+}
+
+.lastname {
+    text-transform: uppercase;
+}
+
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table.student {
+    border: 1px solid #5191ce;
+}
+
+table.student th,
+table.student  td  {
+    font-size: 14px;
+    border: 1px solid #5191ce;
+}
+
+table.teacher {
+    border: 1px solid #fe650c;
+}
+
+table.teacher th,
+table.teacher td  {
+    font-size: 14px;
+    border: 1px solid #fe650c;
+}
