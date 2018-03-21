@@ -11,7 +11,7 @@ $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
 
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$statement = $connect->query("SELECT * FROM matieres LIMIT 0, 10");
+$statement = $connect->query("SELECT * FROM matieres");
 
 
 ?>
@@ -33,75 +33,111 @@ $statement = $connect->query("SELECT * FROM matieres LIMIT 0, 10");
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    .highlighted{
+        background-color: #28A6CB; color:#FFF;
+    }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="disconnection">
-            <a href="../module/traitement-deconnection.php">
-                <img src="img/disconnection.svg" alt="" class="icon">
+            <a href="#">
+                <img src="img/disconnection.svg" alt="" class="disconnection_icon">
             </a>
         </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
-    <main>
-        <section class="courses_taught-list">
-            <h3 class="board_title">Matières enseignées</h3>
-            <div class="courses_taught-list">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                    <li class="list-group-item"><a href="#">Compétence enseignée</a></li>
-                </ul>
-            </div>
-        </section>
-        <section class="courses_followed-list">
-            <h3 class="board_title">Mes cours</h3>
-            <ul class="list-group">
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                    <li class="list-group-item"><a href="#">Compétence suivie</a></li>
-                </ul>
-        </section>
-        <section class="courses-list">
-            <h3 class="board_title">Compétences</h3>
-            <ul class="list-group">
-            <?php
+    <main class="main-board">
+        <div class="left_list">
+            <section class="courses_followed-list">
+                <h3 class="board_title">Mes cours</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_followed"><a href="#">Compétence</a></li>
+                    </ul>
+            </section>
+            <section class="courses_taught-list">
+                <h3 class="board_title">Matières enseignées</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item course_taught"><a href="#">Programmation Web</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#">Compétence</a></li>
+                        <li class="list-group-item course_taught"><a href="#"><span>Compétence</span></a></li>
+                    </ul>
+            </section>
+        </div>
+        <div class="right_list">
+            <section class="courses-list">
+                <h3 class="board_title">Compétences</h3>
+                <form action="" id="search-courses">
+                        <input type="text" name="category" id="categoryfilter" placeholder="Compétence">
+                        <!--input type="submit" value="Rechercher" id="search_submit"-->
+                </form>
+                <ul class="list-group filter" id="filter">
+                <?php
            
-            while ($matiere = $statement->fetch()) {
-                
-                echo  "<li class='list-group-item'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'>".$matiere['intitule']."</a></li>";
-            }
-            
-            $statement->closeCursor();
-            
-            ?>
-            </ul>
-            <form action="">
-                <div class="form-group search-box">
-                    <input type="text" class="form-control" name="search-competance" id="search-competance" placeholder="rechercher compétence" autocomplete="off">
-                    <div class="result">
-                    </div>
-                </div>
-            </form>
-        </section>
-        <section class="chat">
-
-        </section>
-        <div class="chat_button">
-            <a href=""><img src="img/speech-bubble.svg" class="icon" alt="chat"></a>
+           while ($matiere = $statement->fetch()) {
+               
+               echo  "<li class='list-group-item'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'><span>".$matiere['intitule']."</span></a></li>";
+           }
+           
+           $statement->closeCursor();
+           
+           ?>
+                </ul>
+            </section>
         </div>
     </main>
+    <section class="chat-window" style="display: none;">
+            <h3 class="chat_title">CHAT</h3>
+            <div class="send">
+                <h4 class="name_sender">Elian Bourdu</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="receive">
+                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="receive">
+                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="send">
+                <h4 class="name_sender">Elian Bourdu</h4>
+                <p class="message">blablabla</p>
+            </div>
+            <div class="send-message-container">
+                <form action="" method="post">
+                    <input type="text" name="" id="send_msg" placeholder="Votre message" class="form-control">
+                    <button class="btn-send-msg" type="submit">Envoyer</button>
+                </form>
+            </div>
+     </section>
+    <section class="chat">
+            <div class="chat_button">
+                <a href=""><img src="img/speech-bubble.svg" id="speach_icon" alt="chat"></a>
+            </div>
+        </section>
+    <footer>
+        <p>Alexandre CAILLER - Elian BOURDU</p>
+        <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
+        <p>Workshop 2018 - B1</p>
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
