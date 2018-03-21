@@ -1,3 +1,20 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['email'])) {
+
+?>
+<?php 
+
+$connect = new PDO("mysql:host=localhost;dbname=workshop2;charset=utf8", "root", "");
+
+$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$statement = $connect->query("SELECT * FROM matieres");
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,12 +31,17 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    .highlighted{
+        
+    }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="disconnection">
-            <a href="#">
+            <a href="../module/traitement-deconnection.php">
                 <img src="img/disconnection.svg" alt="" class="disconnection_icon">
             </a>
         </div>
@@ -58,26 +80,19 @@
             <section class="courses-list">
                 <h3 class="board_title">Compétences</h3>
                 <form action="" id="search-courses">
-                        <input type="search" name="" id="search_courses" placeholder="Compétence">
-                        <input type="submit" value="Rechercher" id="search_submit">
+                        <input type="text" name="category" id="categoryfilter" placeholder="Compétence">
+                        <img src="img/search_icon.svg" alt="" id="search_submit">
                 </form>
-                <ul class="list-group">
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
-                    <li class="list-group-item course"><a href="#">Compétence</a></li>
+                <ul class="list-group filter" id="filter">
+                <?php
+           
+           while ($matiere = $statement->fetch()) {
+               echo  "<li class='list-group-item course'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'><span>".$matiere['intitule']."</span></a></li>";
+           }
+           
+           $statement->closeCursor();
+           
+           ?>
                 </ul>
             </section>
         </div>
@@ -112,12 +127,23 @@
                 <img src="img/speech-bubble.svg" id="speach_icon" alt="chat">
             </div>
         </section>
-    <footer>
+    <footer class="board-footer">
         <p>Alexandre CAILLER - Elian BOURDU</p>
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>
-    </footer>
+    </footer >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
+<?php 
+
+} else {
+
+    header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
+    
+}
+
+?>

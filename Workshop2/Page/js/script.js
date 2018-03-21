@@ -7,4 +7,3 @@ $('#not_member').click(function () {
 $('#speach_icon').click(function () {
     $('.chat-window').fadeToggle("fast");
   });
-

@@ -95,7 +95,7 @@ if(isset($_SESSION['email'])) {
                 </table>
             </div>
         </div>
-        <a href="principal.php">principal</a>
+        <a href="board.php">principal</a>
     </main>
     <footer>
         <p>Alexandre CAILLER - Elian BOURDU</p>

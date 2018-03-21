@@ -70,26 +70,7 @@ if(isset($_SESSION['Email'])) {
                             <th scope="col">Professeur</th>
                         </tr>
                     </thead>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
+                    
                 </table>
             </div>
             <div class="teacher">
@@ -99,21 +80,13 @@ if(isset($_SESSION['Email'])) {
                         <tr>
                             <th scope="col">Liste des matières</th>
                         </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
+                        <?php 
+                    while ($a <= 10) {
+                        echo '<tr>
+                                <td>'.$row['intitule'].'</td>
+                            </tr>';
+                    }
+                    ?>
                     </thead>
                 </table>
             </div>
