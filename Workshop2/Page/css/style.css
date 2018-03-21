@@ -87,8 +87,24 @@ form {
     padding: 20px 0 0;
 }
 
+
 .disconnection {
     text-align: right;
+}
+
+.profile_icon, .board_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+}
+
+.board_icon {
+    width: 40px;
+}
+
+.profile_icon {
+    width: 35px;
 }
 
 .disconnection_icon {
@@ -132,10 +148,12 @@ input[type="submit"] {
     text-transform: uppercase;
 }
 
-table {
+table.student,
+table.teacher {
     text-align: center;
     border-collapse: collapse;
     margin: 0 auto;
+    width: 85%;
 }
 
 table.student {
@@ -146,6 +164,7 @@ table.student th,
 table.student td {
     font-size: 14px;
     border: 1px solid #fe650c;
+    vertical-align: middle;
 }
 
 table.teacher {
@@ -354,23 +373,36 @@ section.courses-list {
 }
 
 @media only screen and (min-width:1024px) {
+
+    /*______ CONNECTION & REGISTRATION________*/
     .connection,
     .Inscription {
         width: 40%;
         margin: 20px auto;
     }
+
+/*________________ PROFILE  ________________*/
+    table.student,
+    table.teacher {
+        text-align: center;
+        border-collapse: collapse;
+        margin: 0 auto;
+        width: 85%;
+    }
+
+    /*________________ BOARD ________________*/
     div.left_list {
         float: left;
-        width: 30%;
+        width: 35%;
         text-align: center;
         min-height: 100%;
-        margin: 10px;
+        margin: 10px 40px;
     }
     div.right_list {
         float: right;
-        width: 30%;
+        width: 35%;
         text-align: center;
-        margin: 10px;
+        margin: 10px 40px;
     }
     .board-footer {
         clear: both;

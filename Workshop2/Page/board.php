@@ -45,6 +45,9 @@ $statement = $connect->query("SELECT * FROM matieres");
                 <img src="img/disconnection.svg" alt="" class="disconnection_icon">
             </a>
         </div>
+        <div class="profile-access">
+            <a href="Myprofile.php"><img src="img/profile-icon.svg" alt="" class="profile_icon"></a>
+        </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
         <p class="baseline">Osez aller au-delà de vous-même</p>
@@ -133,7 +136,6 @@ $statement = $connect->query("SELECT * FROM matieres");
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>
     </footer >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/main.js"></script>
 </body>

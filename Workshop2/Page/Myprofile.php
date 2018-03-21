@@ -25,6 +25,9 @@ if(isset($_SESSION['email'])) {
         <div class="disconnection">
             <a href="#"><img src="img/disconnection.svg" alt="" class="disconnection_icon"></a>
         </div>
+        <div class="board-access">
+            <a href="board.php"><img src="img/board-icon.svg" alt="" class="board_icon"></a>
+        </div>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
@@ -95,7 +98,6 @@ if(isset($_SESSION['email'])) {
                 </table>
             </div>
         </div>
-        <a href="board.php">principal</a>
     </main>
     <footer>
         <p>Alexandre CAILLER - Elian BOURDU</p>

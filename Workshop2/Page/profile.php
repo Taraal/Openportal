@@ -1,34 +1,20 @@
 <?php
-
 $id = $_GET['id'];
-
     $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
-
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-
     $sql = "SELECT * FROM utilisateurs WHERE Email = ". $_GET['id'] ."";
-
     $statement = $connect->prepare($sql);
-
     $statement->bindParam(':id', $id);
-
     $statement->execute();
-
     $row = $statement->fetch();
-
 unset($statement);
-
 unset($connect);
-
 ?>
 
 
 <?php
-
 session_start();
-
 if(isset($_SESSION['Email'])) {
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -101,11 +87,7 @@ if(isset($_SESSION['Email'])) {
 
 </html>
 <?php
-
 } else {
-
 header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
-
 }
-
 ?>
