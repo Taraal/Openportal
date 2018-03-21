@@ -1,34 +1,29 @@
 <?php
-
 $id = $_GET['id'];
-
     $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
-
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-
-    $sql = "SELECT * FROM utilisateurs WHERE Email = ". $_GET['id'] ."";
-
+    $sql = "SELECT * FROM utilisateurs WHERE id = ". $_GET['id'] ."";
     $statement = $connect->prepare($sql);
-
     $statement->bindParam(':id', $id);
-
     $statement->execute();
-
     $row = $statement->fetch();
-
 unset($statement);
-
 unset($connect);
-
 ?>
 
 
 <?php
-
 session_start();
 
-if(isset($_SESSION['Email'])) {
-
+if(isset($_SESSION['email'])) {
+    
+    $email_session = $_SESSION['email'];
+    $bdd = new PDO('mysql:host=localhost;dbname=workshop2;charset=utf8', 'root', '');
+                   
+            $reponse = $bdd->query("SELECT id FROM utilisateurs WHERE Email ='$email_session'");
+                    
+            $id_session = $reponse->fetch();
+    echo $email_session;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -70,26 +65,7 @@ if(isset($_SESSION['Email'])) {
                             <th scope="col">Professeur</th>
                         </tr>
                     </thead>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
+                    
                 </table>
             </div>
             <div class="teacher">
@@ -99,25 +75,46 @@ if(isset($_SESSION['Email'])) {
                         <tr>
                             <th scope="col">Liste des matières</th>
                         </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
+                        //<?php 
+//                   while ($a <= 10) {
+//                        echo '<tr>
+//                                <td>'.$row['intitule'].'</td>
+//                            </tr>';
+//                    }
+//                    ?>
                     </thead>
                 </table>
             </div>
         </div>
+        <?php
+        
+        // Connexion à la base de données
+        try{
+            $bdd = new PDO('mysql:host=localhost;dbname=workshop2;charset=utf8', 'root', '');
+        }
+        catch(Exception $e){
+            die('Erreur : '.$e->getMessage());
+        }
+
+        echo $id_session[0];
+        echo $id;
+        // Récupération des 10 derniers messages
+        $reponse = $bdd->query("SELECT Prenom, contenu, to_user_id, from_user_id FROM messages as m JOIN utilisateurs as u ON u.id=m.from_user_id WHERE from_user_id = '$id' AND to_user_id = '$id_session[0]' OR from_user_id = '$id_session[0]' AND to_user_id = '$id' ORDER BY id_message DESC LIMIT 0, 5");
+
+                
+        // Affichage de chaque message
+        while ($donnees = $reponse->fetch()){
+            echo '<p><strong>' . htmlspecialchars($donnees['Prenom']) . '</strong> : ' . htmlspecialchars($donnees['contenu']) . '</p>';
+        }
+
+        $reponse->closeCursor();
+        ?>
+        <form action="../module/traitement-message.php" class="form-horizontal connection_form" method="POST">  
+            <input type="text" name="contenu" placeholder=" Votre Message..."  required>
+            <input type='hidden' name='to_user_id' value='<?php echo "$id";?>'/> 
+            <input type='hidden' name='from_user_id' value='<?php echo "$id_session[0]";?>'/> 
+            <input class="boutton" type="submit" value="Envoyer" name="send" >
+        </form>
     </main>
     <footer>
         <p>Alexandre CAILLER - Elian</p>
@@ -128,11 +125,7 @@ if(isset($_SESSION['Email'])) {
 
 </html>
 <?php
-
 } else {
-
 header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
-
 }
-
 ?>
