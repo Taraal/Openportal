@@ -2,11 +2,11 @@
 
 $id = $_GET['id'];
 
-    $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=workshop2;charset=utf8", "root", "");
 
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
 
-    $sql = "SELECT * FROM utilisateurs WHERE Email = ". $_GET['id'] ."";
+    $sql = "SELECT * FROM utilisateurs WHERE id = ". $_GET['id'] ."";
 
     $statement = $connect->prepare($sql);
 
@@ -14,21 +14,40 @@ $id = $_GET['id'];
 
     $statement->execute();
 
-    $row = $statement->fetch();
+    $profile = $statement->fetch();
 
 unset($statement);
 
-unset($connect);
+$sql2 = "SELECT * FROM enseignants WHERE id_user = ".$_GET['id']."";
+$statement2 = $connect->prepare($sql2);
+$statement2->bindParam(':id',$id);
+$statement2->execute();
+
+
+$sql4 = "SELECT * FROM apprenants WHERE id_user = ".$_GET['id']."";
+$statement4 = $connect->prepare($sql4);
+$statement4->bindParam(':id',$id);
+$statement4->execute();
 
 ?>
 
 
 <?php
-
 session_start();
 
-if(isset($_SESSION['Email'])) {
-
+if(isset($_SESSION['email'])) {
+    
+    $email_session = $_SESSION['email'];
+    $bdd = new PDO('mysql:host=localhost;dbname=workshop2;charset=utf8', 'root', '');
+                   
+            $reponse = $bdd->query("SELECT id, Prenom FROM utilisateurs WHERE Email ='$email_session'");
+            
+            $answer = $reponse->fetch();
+            
+            $id_session = $answer['id'];
+            
+            $prenom = $answer['Prenom'];
+            
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -41,12 +60,22 @@ if(isset($_SESSION['Email'])) {
     <link href="https://fonts.googleapis.com/css?family=Aldrich|Questrial" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="main.js"></script>
 </head>
 
 <body>
     <!--___________________ HEADER ___________________-->
+    <div class="disconnection">
+            <a href="../module/traitement-deconnection.php">
+                <img src="img/disconnection.svg" alt="" class="disconnection_icon">
+            </a>
+    </div>
+    <div class="board-access">
+            <a href="board.php"><img src="img/board-icon.svg" alt="" class="board_icon"></a>
+    </div> 
     <header>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
@@ -56,40 +85,43 @@ if(isset($_SESSION['Email'])) {
             <img src="img/profile/avatar_a-tatibouet.jpg" alt="" class="avatar">
         </div>
         <div class="identity">
-            <h3 class="fisrtname"><?php echo $row['Prenom'] ?></h3>
-            <h3 class="lastname"><?php echo $row['Nom'] ?></h3>
-            <a href="mailto:<?php echo $row['Email']; ?>"><?php echo $row['Email']; ?></a>
+            <h3 class="fisrtname"><?php echo $profile['Prenom'] ?></h3>
+            <h3 class="lastname"><?php echo $profile['Nom'] ?></h3><br>
+            <a href="mailto:<?php echo $profile['Email']; ?>"><?php echo $profile['Email']; ?></a>
         </div>
         <div class="skills">
             <div class="table student">
-                <h4>Etudiant</h4>
+                <h4>Apprenants</h4>
                 <table class="student">
                     <thead>
                         <tr>
-                            <th scope="col">Liste des matières</th>
-                            <th scope="col">Professeur</th>
+                            <th scope="col">Liste des matiÃ¨res</th>
                         </tr>
+                    
+                        <?php while ($apprenant = $statement4->fetch()) {
+
+                        $sql5 = "SELECT * FROM matieres WHERE id = ".$apprenant['id_matiere']."";
+
+                        $statement5 = $connect->prepare($sql5);
+
+                        $statement5->bindParam(':id',$id);
+
+                        $statement5->execute();
+
+                        while ($apprenant2 = $statement5->fetch()) {
+
+                                echo "<tr><td><a href='page-matiere.php?id=".$apprenant2['id']."&nom=".$apprenant2['intitule']."'><span>".$apprenant2['intitule']."</span></a></td></tr>";
+
+                        }
+
+                        $statement5->closeCursor();
+
+                        }
+
+                        $statement4->closeCursor();
+                        ?>
                     </thead>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
-                    <tr>
-                        <td>Compétence</td>
-                        <td>Sylouan Corfa</td>
-                    </tr>
+                    
                 </table>
             </div>
             <div class="teacher">
@@ -97,31 +129,76 @@ if(isset($_SESSION['Email'])) {
                 <table class="table teacher">
                     <thead>
                         <tr>
-                            <th scope="col">Liste des matières</th>
+                            <th scope="col">Liste des matiÃ¨res</th>
                         </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
-                        <tr>
-                            <td>Compétence</td>
-                        </tr>
+                        
+                   
+                        
+                       <?php while ($enseignant = $statement2->fetch()) {
+
+                            $sql3 = "SELECT * FROM matieres WHERE id = ".$enseignant['id_matiere']."";
+
+                            $statement3 = $connect->prepare($sql3);
+
+                            $statement3->bindParam(':id',$id);
+
+                            $statement3->execute();
+
+                            while ($enseignant2 = $statement3->fetch()) {
+
+                                    echo "<tr><td><a href='page-matiere.php?id=".$enseignant2['id']."&nom=".$enseignant2['intitule']."'><span>".$enseignant2['intitule']."</span></a></td></tr>";
+
+                            }
+
+                            $statement3->closeCursor();
+
+                            }
+
+                            $statement2->closeCursor();
+                        
+                    
+                     unset($connect);?>
+                        
                     </thead>
                 </table>
             </div>
         </div>
+        <div id="chat">
+                <?php
+        
+        // Connexion à la base de données
+        try{
+            $bdd = new PDO('mysql:host=localhost;dbname=workshop2;charset=utf8', 'root', '');
+        }
+        catch(Exception $e){
+            die('Erreur : '.$e->getMessage());
+        }
+
+        // Récupération des 10 derniers messages
+        $reponse = $bdd->prepare("SELECT id_message, Prenom, contenu, to_user_id, from_user_id FROM messages as m JOIN utilisateurs as u ON u.id=m.from_user_id WHERE from_user_id = :id AND to_user_id = '$id_session[0]' OR from_user_id = '$id_session[0]' AND to_user_id = :id ORDER BY id_message DESC LIMIT 0, 5");
+
+        $reponse->execute(array(':id' => $id));
+        
+        $answer = $reponse->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($answer as &$msg) {
+            echo '<p class="id-message-info" data-id="' . $msg['id_message'] . '"><strong>' . htmlspecialchars($msg['Prenom']) . '</strong> : ' . htmlspecialchars($msg['contenu']) . '</p>';
+        }
+        
+        $reponse->closeCursor();
+        ?>
+            <div class="form-horizontal connection_form" method="POST">  
+                <input id="message" type="text" name="contenu" placeholder=" Votre Message..."  required>
+                <input id="to" type='hidden' name='to_user_id' value='<?php echo "$id";?>'/>
+                <input id="my_name" type="hidden" value='<?php echo htmlspecialchars($prenom);?>'/>
+                <input id="from" type='hidden' name='from_user_id' value='<?php echo "$id_session[0]";?>'/> 
+            </div>
+            <div onclick="send()" class="boutton">Envoyer</div>
+            <script src="../module/messages.js"></script>
+        </div>
     </main>
-    <footer>
+    <footer class="board-footer">
         <p>Alexandre CAILLER - Elian</p>
-        <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
+        <p>Sylouan CORFA - AnaÃ¯s TATIBOUÃ‹T</p>
         <p>Workshop 2018 - B1</p>
     </footer>
 </body>

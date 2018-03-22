@@ -24,6 +24,8 @@ if (isset($_POST['connection'])) {
             $info_user = $recorvery_user->fetch();
 
             $_SESSION['prenom'] = $info_user['Prenom']; 
+            
+            $_SESSION['id'] = $info_user['id']; 
 
             $_SESSION['nom'] = $info_user['Nom'];
 
@@ -31,7 +33,7 @@ if (isset($_POST['connection'])) {
 
             $_SESSION['password'] = $info_user['Mdp'];
 
-            header('location: ./../Page/principal.php');
+            header('location: ./../Page/board.php');
 
             /*setcookie('email', $recorvery_user->id . '-----' . sha1($recorvery_user->firstname . $recorvery_user->password . $_SERVER['REMOTE_ADDR']);
             time() + 3600 * 24 * 36512, '/', 'localhost', false, true);
