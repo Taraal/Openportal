@@ -20,9 +20,14 @@ if(isset($_SESSION['email'])) {
     $email_session = $_SESSION['email'];
     $bdd = new PDO('mysql:host=localhost;dbname=workshop2;charset=utf8', 'root', '');
                    
-            $reponse = $bdd->query("SELECT id FROM utilisateurs WHERE Email ='$email_session'");
-                    
-            $id_session = $reponse->fetch();
+            $reponse = $bdd->query("SELECT id, Prenom FROM utilisateurs WHERE Email ='$email_session'");
+            
+            $answer = $reponse->fetch();
+            
+            $id_session = $answer['id'];
+            
+            $prenom = $answer['Prenom'];
+            
     echo $email_session;
 ?>
 <!DOCTYPE html>
@@ -36,6 +41,8 @@ if(isset($_SESSION['email'])) {
     <link href="https://fonts.googleapis.com/css?family=Aldrich|Questrial" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="main.js"></script>
 </head>
@@ -65,7 +72,6 @@ if(isset($_SESSION['email'])) {
                             <th scope="col">Professeur</th>
                         </tr>
                     </thead>
-                    
                 </table>
             </div>
             <div class="teacher">
@@ -75,7 +81,7 @@ if(isset($_SESSION['email'])) {
                         <tr>
                             <th scope="col">Liste des matières</th>
                         </tr>
-                        //<?php 
+                        <?php 
 //                   while ($a <= 10) {
 //                        echo '<tr>
 //                                <td>'.$row['intitule'].'</td>
@@ -86,7 +92,8 @@ if(isset($_SESSION['email'])) {
                 </table>
             </div>
         </div>
-        <?php
+        <div id="chat">
+                <?php
         
         // Connexion à la base de données
         try{
@@ -96,25 +103,32 @@ if(isset($_SESSION['email'])) {
             die('Erreur : '.$e->getMessage());
         }
 
-        echo $id_session[0];
-        echo $id;
         // Récupération des 10 derniers messages
-        $reponse = $bdd->query("SELECT Prenom, contenu, to_user_id, from_user_id FROM messages as m JOIN utilisateurs as u ON u.id=m.from_user_id WHERE from_user_id = '$id' AND to_user_id = '$id_session[0]' OR from_user_id = '$id_session[0]' AND to_user_id = '$id' ORDER BY id_message DESC LIMIT 0, 5");
+        $reponse = $bdd->prepare("SELECT id_message, Prenom, contenu, to_user_id, from_user_id FROM messages as m JOIN utilisateurs as u ON u.id=m.from_user_id WHERE from_user_id = :id AND to_user_id = '$id_session[0]' OR from_user_id = '$id_session[0]' AND to_user_id = :id ORDER BY id_message DESC LIMIT 0, 5");
 
-                
-        // Affichage de chaque message
-        while ($donnees = $reponse->fetch()){
-            echo '<p><strong>' . htmlspecialchars($donnees['Prenom']) . '</strong> : ' . htmlspecialchars($donnees['contenu']) . '</p>';
+        $reponse->execute(array(':id' => $id));
+        
+        $answer = $reponse->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($answer as &$msg) {
+            echo '<p class="id-message-info" data-id="' . $msg['id_message'] . '"><strong>' . htmlspecialchars($msg['Prenom']) . '</strong> : ' . htmlspecialchars($msg['contenu']) . '</p>';
         }
+        
+        // Affichage de chaque message
+//        while ($donnees = $reponse->fetch()){
+//            echo '<p><strong>' . htmlspecialchars($donnees['Prenom']) . '</strong> : ' . htmlspecialchars($donnees['contenu']) . '</p>';
+//        }
 
         $reponse->closeCursor();
         ?>
-        <form action="../module/traitement-message.php" class="form-horizontal connection_form" method="POST">  
-            <input type="text" name="contenu" placeholder=" Votre Message..."  required>
-            <input type='hidden' name='to_user_id' value='<?php echo "$id";?>'/> 
-            <input type='hidden' name='from_user_id' value='<?php echo "$id_session[0]";?>'/> 
-            <input class="boutton" type="submit" value="Envoyer" name="send" >
-        </form>
+            <div class="form-horizontal connection_form" method="POST">  
+                <input id="message" type="text" name="contenu" placeholder=" Votre Message..."  required>
+                <input id="to" type='hidden' name='to_user_id' value='<?php echo "$id";?>'/>
+                <input id="my_name" type="hidden" value='<?php echo htmlspecialchars($prenom);?>'/>
+                <input id="from" type='hidden' name='from_user_id' value='<?php echo "$id_session[0]";?>'/> 
+            </div>
+            <div onclick="send()" class="boutton">Envoyer</div>
+            <script src="../module/messages.js"></script>
+        </div>
     </main>
     <footer>
         <p>Alexandre CAILLER - Elian</p>
@@ -129,3 +143,4 @@ if(isset($_SESSION['email'])) {
 header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
 }
 ?>
+

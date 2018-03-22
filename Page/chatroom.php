@@ -1,9 +1,6 @@
 <?php
-
 session_start();
-
 if(isset($_SESSION['email'])) {
-
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +29,7 @@ if(isset($_SESSION['email'])) {
 </html>
 
 <?php
-
 } else {
-
 header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
-
 }
-
 ?>
