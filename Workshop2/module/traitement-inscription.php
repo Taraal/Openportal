@@ -39,21 +39,23 @@ if(isset($_POST['inscription'])) {
                                     $insert->execute(array($nom, $prenom, $email, $password));
                                     
                                     header("location: ./../Page/index.php?good=Vous êtes inscrit");
+                                } else {
+                                    header("location:./../Page/index.php?error=Vos mot de passe sont différents");
                                 }
                             } else {
-                                header("location: ./../Page/index.php?erreur= 15");
+                                header("location: ./../Page/index.php?error=Vos adresse mail sont différents.");
                             }
                         } else {
-                            header("location: ./../Page/index.php?erreur= 16");
+                            header("location: ./../Page/index.php?error=Votre mots de passe est trop long.");
                         }
                     } else {
-                        header("location: ./../Page/index.php?erreur= 17");
+                        header("location: ./../Page/index.php?error=Votre email est trop long.");
                     }
                 } else {
-                    header("location: ./../Page/index.php?erreur= 18");
+                    header("location: ./../Page/index.php?error=Votre nom est trop long.");
                 }
             } else {
-                header("location: ./../Page/index.php?erreur= 19");
+                header("location: ./../Page/index.php?error=Votre prénom est trop long.");
             }
 
             
