@@ -175,7 +175,7 @@ if(isset($_SESSION['id'])) {
             $("#filter").sortable({connectWith:"#professeur"}).disableSelection();
         });*/
 
-        /*$(function(){
+        $(function(){
             $( "#filter, #sortable1" ).sortable({
                 connectWith: ".connectedSortable"}).disableSelection(); 
                 $.ajax({
@@ -186,14 +186,9 @@ if(isset($_SESSION['id'])) {
         $(function(){
             $( "#filter, #sortable3" ).sortable({
                 connectWith: ".connectedSortable"}).disableSelection();
-        });*/
+        });
 
-        $(function(){
-
-$('#element').draggable(); // appel du plugin
-
-});
-        
+       
         /*$(document).ready(function(){
             $("#myAccordion").accordion();
             $(".source li").draggable({helper:"clone"});
