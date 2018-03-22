@@ -294,7 +294,7 @@ section.courses_taught-list {
 
 section.courses-list {
     position: fixed;
-    top: 200px;
+    top: 315px;
     right: 0;
     height: 220px;
     background-color: #fff;
@@ -689,10 +689,6 @@ section.courses-list {
     .profile-footer,
     .board-footer {
         clear: both;
-    }
-
-    .main-board {
-        padding-bottom: 80%;
     }
 
     .chat-window {

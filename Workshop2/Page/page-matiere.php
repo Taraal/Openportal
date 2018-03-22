@@ -60,9 +60,12 @@ $statement2->execute();
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1><?php echo $matiere['intitule'];?></h1>
     </header>
+    <div class="board-access">
+        <a href="board.php"><img src="img/board-icon.svg" alt="" class="board_icon"></a>
+    </div> 
     <main>
         <h2>Les Professeurs enseignant cette matière<hr style="width: 50%"></h2>
-        <ul class="list-group filter" id="filter">
+        <div class="row" id="filter">
                 <?php
 
                     while ($enseignant = $statement2->fetch()) {
@@ -77,7 +80,11 @@ $statement2->execute();
 
                         while ($enseignant2 = $statement3->fetch()) {
 
-                            echo "<li><a href='profile.php?id=".$enseignant2['id']."'><span>". $enseignant2['Prenom']." ".$enseignant2['Nom']."</span></a><li>";
+                            echo "
+                            <div class='col-lg-md profile_teacher-container'>
+                                <div class='profile_photo'><img src='img/profile/avatar_a-tatibouet.jpg' alt='' class='avatar_photo'></div>
+                                <p class='course_teacher'><a href='profile.php?id=".$enseignant2['id']."'><span>". $enseignant2['Prenom']." ".$enseignant2['Nom']."</span></a></p>
+                            </div>"; 
             
                         }
             

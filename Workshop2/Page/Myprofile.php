@@ -138,7 +138,6 @@ if(isset($_SESSION['id'])) {
                 </table>
             </div>
         </div>
-        <a href="board.php">principal</a>
     </main>
     <footer class="profile-footer">
         <p>Alexandre CAILLER - Elian BOURDU</p>

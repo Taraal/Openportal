@@ -123,10 +123,8 @@ $statement = $connect->query("SELECT * FROM matieres");
             <div class="chat_button">
                 <img src="img/speech-bubble.svg" id="speach_icon" alt="chat">
             </div>
-            <a href="Myprofile.php">Mypofil</a>
         </section>
-        <a href="profile.php?id=2">test profil</a>
-    <footer>
+    <footer class="board-footer">
         <p>Alexandre CAILLER - Elian BOURDU</p>
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>
