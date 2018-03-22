@@ -50,8 +50,13 @@ $statement = $connect->query("SELECT * FROM matieres");
         <h1 class="title">OpenPortal</h1>
         <p class="baseline">Osez aller au-delà de vous-même</p>
     </header>
+    <div class="profile-access">
+        <a href="Myprofile.php"><img src="img/profile-icon.svg" alt="" class="profile_icon"></a>
+    </div>
     <main class="main-board">
-    <button id="btn-courses">Compétences</button>
+    <div id="btn-courses">
+       <img src="img/skills-icon.svg" alt="" class="skills_icon">
+    </div>
         <div class="left_list">
             <section class="courses_followed-list">
                 <h3 class="board_title">Mes cours</h3>
@@ -149,13 +154,21 @@ $statement = $connect->query("SELECT * FROM matieres");
 
         $(function(){
             $( "#filter, #sortable1" ).sortable({
-                connectWith: ".connectedSortable"
+                connectWith: ".connectedSortable",
+                update : function () {
+                                var order = $('#colonne_g').sortable('serialize');
+                                $("#info").load("ajax.php?"+order);
+                                }
             }).disableSelection(); 
         });
   
         $(function(){
             $( "#filter, #sortable3" ).sortable({
-                connectWith: ".connectedSortable"
+                connectWith: ".connectedSortable",
+                update : function () {
+                                var order = $('#colonne_g').sortable('serialize');
+                                $("#info").load("ajax.php?"+order);
+                                }
             }).disableSelection();
         });
         
