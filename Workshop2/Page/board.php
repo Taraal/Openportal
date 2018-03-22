@@ -4,6 +4,7 @@ session_start();
 
 if(isset($_SESSION['id'])) {
 
+    $id_session = $_SESSION['id'];
 ?>
 <?php 
 
@@ -94,45 +95,51 @@ $statement = $connect->query("SELECT * FROM matieres");
             </section>
         </div>
     </main>
-    <section class="chat-window">
-            <h3 class="chat_title">CHAT</h3>
-            <div class="send">
-                <h4 class="name_sender">Elian Bourdu</h4>
-                <p class="message">blablabla</p>
+    <!--__________________________________________ CHAT __________________________________________-->
+        
+        <section class="chat-window">
+        <h3 class="chat_title">CHAT</h3>
+        <div id="chat">
+            <?php
+            
+                // Connexion à la base de données
+                    try {
+                        $bdd = new PDO('mysql:host=localhost;dbname=workshop2;charset=utf8', 'root', '');
+                    } 
+                    catch(Exception $e){
+                        die('Erreur : '.$e->getMessage());
+                    }
+                    // Récupération des 50 derniers messages (reçus uniquement)
+                    $reponse = $bdd->prepare("SELECT id_message, Prenom, contenu, to_user_id, from_user_id FROM messages as m JOIN utilisateurs as u ON u.id=m.from_user_id WHERE to_user_id = '$id_session[0]' ORDER BY id_message DESC LIMIT 0, 50");
+                    $reponse->execute(array(':id' => $id));
+                    $answer = $reponse->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    
+                    foreach ($answer as &$msg) {
+                        echo '<p class="id-message-info message_block" data-id="' . $msg['id_message'] . '</p>"><h4 class="name_user"><a href="profile.php?id=' . htmlspecialchars($msg['from_user_id']) . '">' . htmlspecialchars($msg['Prenom']) . '</a></h4>' . htmlspecialchars($msg['contenu']) . '</p>';
+                    }
+                    
+                    $reponse->closeCursor();
+                ?>
+
             </div>
-            <div class="receive">
-                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
-                <p class="message">blablabla</p>
-            </div>
-            <div class="receive">
-                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
-                <p class="message">blablabla</p>
-            </div>
-            <div class="send">
-                <h4 class="name_sender">Elian Bourdu</h4>
-                <p class="message">blablabla</p>
-            </div>
-            <div class="send-message-container">
-                <form action="" method="post">
-                    <input type="text" name="" id="send_msg" placeholder="Votre message" class="form-control">
-                    <button class="btn-send-msg" type="submit">Envoyer</button>
-                </form>
-            </div>
-     </section>
+        </section>
+        <!--____________________________________ FIN CHAT  ____________________________________-->
+    </main>
     <section class="chat">
             <div class="chat_button">
                 <img src="img/speech-bubble.svg" id="speach_icon" alt="chat">
             </div>
-        </section>
-    <footer class="board-footer">
+    </section>
+    </main>
+    <footer class="profile-footer">
         <p>Alexandre CAILLER - Elian BOURDU</p>
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>
     </footer>
-        
-   
+    <script src="../module/messages.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/main.js"></script> 
+    <script src="js/main.js"></script>
 </body>
 
 </html>

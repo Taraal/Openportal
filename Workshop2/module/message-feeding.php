@@ -24,7 +24,7 @@ $reponse->execute(array(
 $answer = $reponse->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($answer as &$msg) {
-    echo '<p class="id-message-info" data-id="' . $msg['id_message'] . '"><strong>' . htmlspecialchars($msg['Prenom']) . '</strong> : ' . htmlspecialchars($msg['contenu']) . '</p>';
+                        echo '<p class="id-message-info message_block" data-id="' . $msg['id_message'] . '</p>"><h4 class="name_user">' . htmlspecialchars($msg['Prenom']) . '</h4>' . htmlspecialchars($msg['contenu']) . '</p>';
 }
 
 /* 

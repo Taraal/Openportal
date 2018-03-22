@@ -41,14 +41,7 @@ function pull_message() {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(maxid + '&id=' + $('#to').val() + '&ids=' + $('#from').val());
     
-//    $.ajax({
-//        url: "../module/message-feeding.php",
-//        type: 'POST',
-//        data: maxid + '&id=' + $('#to').val() + '&ids=' + $('#from').val()
-//    }).done(function(answer) {
-//        $('#chat').html(answer + $('#chat').html());
-//    });
-//    $('#message').focus();
+
 }
 
 document.getElementById('message').onkeypress = function(event){
