@@ -53,6 +53,7 @@ $statement = $connect->query("SELECT * FROM matieres");
         <p class="baseline">Osez aller au-delà de vous-même</p>
     </header>
     <main class="main-board">
+        <button id="btn-courses">Compétences</button>
         <div class="left_list">
             <section class="courses_followed-list">
                 <h3 class="board_title">Mes cours</h3>

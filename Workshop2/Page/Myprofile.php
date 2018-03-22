@@ -42,7 +42,7 @@ if(isset($_SESSION['email'])) {
         </div>
         <div class="skills">
             <div class="table student">
-                <h4>Etudiant</h4>
+                <h4>Apprenant</h4>
                 <table class="student">
                     <thead>
                         <tr>
@@ -99,7 +99,7 @@ if(isset($_SESSION['email'])) {
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="profile-footer">
         <p>Alexandre CAILLER - Elian BOURDU</p>
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>
