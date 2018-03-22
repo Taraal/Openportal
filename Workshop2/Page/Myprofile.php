@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['email'])) {
+if(isset($_SESSION['id'])) {
 
 ?>
 <!DOCTYPE html>
@@ -23,14 +23,14 @@ if(isset($_SESSION['email'])) {
     <!--___________________ HEADER ___________________-->
     <header>
         <div class="disconnection">
-            <a href="#"><img src="img/disconnection.svg" alt="" class="disconnection_icon"></a>
-        </div>
-        <div class="board-access">
-            <a href="board.php"><img src="img/board-icon.svg" alt="" class="board_icon"></a>
+            <a href="module/traitement-deconnection.php"><img src="img/disconnection.svg" alt="" class="disconnection_icon"></a>
         </div>
         <img src="img/openportal_logo.svg" alt="OP" class="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
+    <div class="board-access">
+            <a href="board.php"><img src="img/board-icon.svg" alt="" class="board_icon"></a>
+    </div>
     <main>
         <div class="profile_photo">
             <img src="img/profile/avatar_a-tatibouet.jpg" alt="" class="avatar">

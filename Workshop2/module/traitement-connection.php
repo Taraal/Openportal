@@ -23,6 +23,8 @@ if (isset($_POST['connection'])) {
 
             $info_user = $recorvery_user->fetch();
 
+            $_SESSION['id'] = $info_user['id'];
+
             $_SESSION['prenom'] = $info_user['Prenom']; 
 
             $_SESSION['nom'] = $info_user['Nom'];

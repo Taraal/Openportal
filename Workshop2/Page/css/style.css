@@ -13,6 +13,7 @@ main {
 }
 
 h1,
+h2,
 h3,
 h4 {
     font-family: 'Aldrich', sans-serif;
@@ -93,19 +94,34 @@ form {
     text-align: right;
 }
 
-.profile_icon, .board_icon {
+.profile_icon-board, .board_icon {
     position: absolute;
     top: 0;
     left: 0;
     margin: 15px;
 }
 
-.board_icon {
-    width: 40px;
+.profile_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px; 
 }
 
-.profile_icon {
-    width: 35px;
+.profile-icon {
+    position: absolute;
+    top: 0;
+    left: 50px;
+    margin: 15px;
+}
+
+.board_icon {
+    width: 30px;
+}
+
+.profile_icon, 
+.profile-icon {
+    width: 30px;
 }
 
 .disconnection_icon {
@@ -335,6 +351,11 @@ section.courses-list h3 {
     padding: 0;
 }
 
+/*___________ PAGE COURSE ___________*/
+#filter {
+   
+}
+
 
 /*___________ CHAT ___________*/
 
@@ -422,6 +443,32 @@ section.courses-list h3 {
     font-size: 12px;
 }
 
+
+/*___________ PAGE COURSES TAUGHT  ___________*/
+
+.title-page_course {
+    margin: 15px 0;
+}
+
+.profile_teacher-container {
+    margin: 50px auto;
+    border: 2px solid #3d3d3d;
+    border-radius: 2px;
+}
+
+.row {
+    margin: 0 auto;
+}
+
+.avatar_photo {
+    width: 150px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.course_teacher a {
+    color: #3d3d3d;
+}
 
 /*___________ ANIMATIONS  ___________*/
 
@@ -539,6 +586,15 @@ section.courses-list h3 {
 
 
 @media only screen and (min-width:1024px) {
+
+    .board_icon {
+        width: 35px;
+    }
+
+    .profile_icon, 
+    .profile-icon {
+        width: 35px;
+    }
 
     /*______ CONNECTION & REGISTRATION________*/
 

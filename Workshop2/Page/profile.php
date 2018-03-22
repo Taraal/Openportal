@@ -1,20 +1,39 @@
 <?php
+
 $id = $_GET['id'];
-    $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
+
+$connect = new PDO("mysql:host=localhost;dbname=workshop2;charset=utf8", "root", "");
+
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-    $sql = "SELECT * FROM utilisateurs WHERE Email = ". $_GET['id'] ."";
+
+    $sql = "SELECT * FROM utilisateurs WHERE id = ". $_GET['id'] ."";
+
     $statement = $connect->prepare($sql);
+
     $statement->bindParam(':id', $id);
+
     $statement->execute();
-    $row = $statement->fetch();
+
+    $profile = $statement->fetch();
+
 unset($statement);
+
+$sql2 = "SELECT * FROM enseignants WHERE id_matiere = ".$_GET['id']."";
+$statement2 = $connect->prepare($sql2);
+$statement2->bindParam(':id',$id);
+$statement2->execute();
+
 unset($connect);
+
 ?>
 
 
 <?php
+
 session_start();
-if(isset($_SESSION['Email'])) {
+
+if(isset($_SESSION['id'])) {
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,19 +51,30 @@ if(isset($_SESSION['Email'])) {
 </head>
 
 <body>
+    <div class="disconnection">
+            <a href="../module/traitement-deconnection.php">
+                <img src="img/disconnection.svg" alt="" class="disconnection_icon">
+            </a>
+    </div>
+    <div class="board-access">
+            <a href="board.php"><img src="img/board-icon.svg" alt="" class="board_icon"></a>
+    </div>
     <!--___________________ HEADER ___________________-->
     <header>
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
+    <div class="profile-access">
+            <a href="Myprofile.php"><img src="img/profile-icon.svg" alt="" class="profile-icon"></a>
+     </div>
     <main>
         <div class="profile_photo">
             <img src="img/profile/avatar_a-tatibouet.jpg" alt="" class="avatar">
         </div>
         <div class="identity">
-            <h3 class="fisrtname"><?php echo $row['Prenom'] ?></h3>
-            <h3 class="lastname"><?php echo $row['Nom'] ?></h3>
-            <a href="mailto:<?php echo $row['Email']; ?>"><?php echo $row['Email']; ?></a>
+            <h3 class="fisrtname"><?php echo $profile['Prenom'] ?></h3>
+            <h3 class="lastname"><?php echo $profile['Nom'] ?></h3><br>
+            <a href="mailto:<?php echo $profile['Email']; ?>"><?php echo $profile['Email']; ?></a>
         </div>
         <div class="skills">
             <div class="table student">
@@ -67,27 +97,32 @@ if(isset($_SESSION['Email'])) {
                             <th scope="col">Liste des matières</th>
                         </tr>
                         <?php 
-                    while ($a <= 10) {
+                   /* while ($a <= 10) {
                         echo '<tr>
                                 <td>'.$row['intitule'].'</td>
                             </tr>';
-                    }
+                    }*/
+                    unset($connect);
                     ?>
                     </thead>
                 </table>
             </div>
         </div>
     </main>
-    <footer>
-        <p>Alexandre CAILLER - Elian</p>
+    <footer class="board-footer">
+        <p>Alexandre CAILLER - Elian BOURDU</p>
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>
-    </footer>
+    </footer >
 </body>
 
 </html>
 <?php
+
 } else {
+
 header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
+
 }
+
 ?>
