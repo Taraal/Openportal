@@ -51,8 +51,8 @@ $statement = $connect->query("SELECT * FROM matieres");
         <p class="baseline">Osez aller au-delà de vous-même</p>
     </header>
     <div class="profile-access">
-            <a href="Myprofile.php"><img src="img/profile-icon.svg" alt="" class="profile_icon"></a>
-     </div>
+        <a href="Myprofile.php"><img src="img/profile-icon.svg" alt="" class="profile_icon"></a>
+    </div>
     <main class="main-board">
     <div id="btn-courses">
        <img src="img/skills-icon.svg" alt="" class="skills_icon">
@@ -82,7 +82,9 @@ $statement = $connect->query("SELECT * FROM matieres");
                 <?php
            
            while ($matiere = $statement->fetch()) {
+               
             echo  "<li class='list-group-item course ' id='".$matiere['id']."'><a href='page-matiere.php?id=".$matiere['id']."&nom=".$matiere['intitule']."'><span>".$matiere['intitule']."</span></a></li>";
+
         }
            
            $statement->closeCursor();
@@ -92,41 +94,11 @@ $statement = $connect->query("SELECT * FROM matieres");
             </section>
         </div>
     </main>
-    <section class="chat-window">
-            <h3 class="chat_title">CHAT</h3>
-            <div class="send">
-                <h4 class="name_sender">Elian Bourdu</h4>
-                <p class="message">blablabla</p>
-            </div>
-            <div class="receive">
-                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
-                <p class="message">blablabla</p>
-            </div>
-            <div class="receive">
-                <h4 class="name_receiver">Anaïs TATIBOUET</h4>
-                <p class="message">blablabla</p>
-            </div>
-            <div class="send">
-                <h4 class="name_sender">Elian Bourdu</h4>
-                <p class="message">blablabla</p>
-            </div>
-            <div class="send-message-container">
-                <form action="" method="post">
-                    <input type="text" name="" id="send_msg" placeholder="Votre message" class="form-control">
-                    <button class="btn-send-msg" type="submit">Envoyer</button>
-                </form>
-            </div>
-     </section>
-    <section class="chat">
-            <div class="chat_button">
-                <img src="img/speech-bubble.svg" id="speach_icon" alt="chat">
-            </div>
-        </section>
-        <footer class="board-footer">
-            <p>Alexandre CAILLER - Elian BOURDU</p>
-            <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
-            <p>Workshop 2018 - B1</p>
-        </footer >
+    <footer class="board-footer">
+        <p>Alexandre CAILLER - Elian BOURDU</p>
+        <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
+        <p>Workshop 2018 - B1</p>
+    </footer>
         
    
     <script src="js/script.js"></script>
@@ -150,13 +122,21 @@ $statement = $connect->query("SELECT * FROM matieres");
 
         $(function(){
             $( "#filter, #sortable1" ).sortable({
-                connectWith: ".connectedSortable"
+                connectWith: ".connectedSortable",
+                update : function () {
+                                var order = $('#colonne_g').sortable('serialize');
+                                $("#info").load("ajax.php?"+order);
+                                }
             }).disableSelection(); 
         });
   
         $(function(){
             $( "#filter, #sortable3" ).sortable({
-                connectWith: ".connectedSortable"
+                connectWith: ".connectedSortable",
+                update : function () {
+                                var order = $('#colonne_g').sortable('serialize');
+                                $("#info").load("ajax.php?"+order);
+                                }
             }).disableSelection();
         });
         

@@ -170,7 +170,7 @@ table.teacher {
     text-align: center;
     border-collapse: collapse;
     margin: 0 auto 20px;
-    width: 85%;
+    width: 75%;
 }
 
 table.student {
@@ -209,7 +209,7 @@ table.teacher td {
     padding: 5px;
     border-radius: 5px;
     color: #f5f5f5;
-    width: 85%;
+    width: 75%;
     margin: 15px auto;
 }
 
@@ -294,7 +294,7 @@ section.courses_taught-list {
 
 section.courses-list {
     position: fixed;
-    top: 200px;
+    top: 315px;
     right: 0;
     height: 220px;
     background-color: #fff;
@@ -305,7 +305,6 @@ section.courses-list {
     padding-top: 50px;
     display: none;
 }
-
 
 .course {
     width: 100%;
@@ -378,6 +377,7 @@ section.courses-list {
     width:100%;
     height: 100%;
     border: 2px solid #3d3d3d;
+    overflow-y: scroll;
     display: none;
 }
 
@@ -386,24 +386,12 @@ section.courses-list {
     padding: 10px;
 }
 
-.receive,
-.send {
-    width: 50%;
+.messages {
+    width: 70%;
 }
 
-.send {
-    position: relative;
-    left: 0;
-    text-align: left;
-    padding-left: 20px;
-}
-
-.receive {
-    position: relative;
-    top: 30px;
-    left: 50%;
-    text-align: right;
-    padding-right: 10px;
+.message_block {
+    width: 70%;
 }
 
 .send-message-container {
@@ -416,7 +404,12 @@ section.courses-list {
     z-index: 4;
 }
 
-#send_msg {
+.name_user {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#message {
     width: 75%;
     position: absolute;
     bottom: 5px;
@@ -424,9 +417,6 @@ section.courses-list {
 }
 
 .btn-send-msg {
-    background-image: url('../img/chatroom/speech-bubble.svg');
-    background-size: 60px 50px;
-    background-repeat: no-repeat;
     background-color: #5191ce;
     border: none;
     position: absolute;
@@ -439,7 +429,6 @@ section.courses-list {
     border-bottom-right-radius: 5px;
     font-size: 12px;
 }
-
 
 /*___________ PAGE COURSES TAUGHT  ___________*/
 
@@ -616,10 +605,9 @@ section.courses-list {
         float: right;
     }
 
-    
     table.student,
     table.teacher {
-        margin: 60px 10px;
+        margin: 60px 10px 75px;
     } 
 
 
@@ -691,10 +679,6 @@ section.courses-list {
         clear: both;
     }
 
-    .main-board {
-        padding-bottom: 80%;
-    }
-
     .chat-window {
         width:40%;
         height: 500px;
@@ -707,14 +691,11 @@ section.courses-list {
         border-top-left-radius: 10px;
     }
 
-    #send_msg {
+    #message {
         width: 30%;
     }
 
     .btn-send-msg {
-        background-image: url('../img/chatroom/speech-bubble.svg');
-        background-size: 60px 50px;
-        background-repeat: no-repeat;
         background-color: #5191ce;
         border: none;
         position: absolute;
