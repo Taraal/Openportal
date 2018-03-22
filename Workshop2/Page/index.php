@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="page_loading" lang="fr">
 
 <head>
     <meta charset="utf-8" />
@@ -14,18 +14,19 @@
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
         crossorigin="anonymous"></script>
-
+     <!-- Modernizr -->
+    <script src="vendor/modernizr.js"></script>
 </head>
 
 <body>
     <!--___________________ HEADER ___________________-->
-    <header>
+    <header id="header-connection">
         <img src="img/openportal_logo.svg" alt="OP" id="logo">
         <h1 class="title">OpenPortal</h1>
         <p class="baseline">Osez aller au-delà de vous-même</p>
     </header>
 
-    <main>
+    <main id="main-connection">
         <!--_______________ CONNECTION _______________-->
         <div class="connection">
             <h3>Connexion</h3>

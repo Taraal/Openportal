@@ -2,19 +2,16 @@
 
 session_start();
 
-if(isset($_SESSION['email'])) {
+if(isset($_SESSION['id'])) {
 
 ?>
 <?php
 $id = $_GET['id'];
-$connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=workshop2;charset=utf8", "root", "");
 
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-
     $sql1 = "SELECT * FROM matieres WHERE id = ". $_GET['id'] ."";
-
     $statement = $connect->prepare($sql1);
-
     $statement->bindParam(':id', $id);
 
     $statement->execute();
@@ -23,14 +20,14 @@ $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
 
 unset($statement);
 
-unset($connect);
+$sql2 = "SELECT * FROM enseignants WHERE id_matiere = ".$_GET['id']."";
+$statement2 = $connect->prepare($sql2);
+$statement2->bindParam(':id',$id);
+$statement2->execute();
 
-    $sql2 = "SELECT * FROM enseignants WHERE id_matiere = ".$_GET['id']."";
 
-    
 
-    $sql3 = "SELECT * FROM utilisateurs WHERE id = ".$enseignant['id_user'].""
-
+   
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +61,35 @@ unset($connect);
         <h1><?php echo $matiere['intitule'];?></h1>
     </header>
     <main>
-        <h2>Les Proffesseur ensseignant cette matiere<hr style="width: 50%"></h2>
+        <h2>Les Professeurs enseignant cette matière<hr style="width: 50%"></h2>
+        <ul class="list-group filter" id="filter">
+                <?php
 
+                    while ($enseignant = $statement2->fetch()) {
+
+                        $sql3 = "SELECT * FROM utilisateurs WHERE id = ".$enseignant['id_user']."";
+
+                        $statement3 = $connect->prepare($sql3);
+
+                        $statement3->bindParam(':id',$id);
+
+                        $statement3->execute();
+
+                        while ($enseignant2 = $statement3->fetch()) {
+
+                            echo "<li><a href='profile.php?id=".$enseignant2['id']."'><span>". $enseignant2['Prenom']." ".$enseignant2['Nom']."</span></a><li>";
+            
+                        }
+            
+                        $statement3->closeCursor();
+            
+                    }
+           
+           $statement2->closeCursor();
+           unset($connect);
+           
+                    ?>
+                </ul>
     </main>
     <script src="js/main.js"></script>
 </body>

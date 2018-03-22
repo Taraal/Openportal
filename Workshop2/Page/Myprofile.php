@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['email'])) {
+if(isset($_SESSION['id'])) {
 
 ?>
 <!DOCTYPE html>
@@ -23,9 +23,9 @@ if(isset($_SESSION['email'])) {
     <!--___________________ HEADER ___________________-->
     <header>
         <div class="disconnection">
-            <a href="#"><img src="img/disconnection.svg" alt="" class="icon"></a>
+            <a href="module/traitement-deconnection.php"><img src="img/disconnection.svg" alt="" class="disconnection_icon"></a>
         </div>
-        <img src="img/openportal_logo.svg" alt="OP" id="logo">
+        <img src="img/openportal_logo.svg" alt="OP" class="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
     <main>
@@ -39,7 +39,7 @@ if(isset($_SESSION['email'])) {
         </div>
         <div class="skills">
             <div class="table student">
-                <h4>Etudiant</h4>
+                <h4>Apprenant</h4>
                 <table class="student">
                     <thead>
                         <tr>
@@ -95,9 +95,9 @@ if(isset($_SESSION['email'])) {
                 </table>
             </div>
         </div>
-        <a href="principal.php">principal</a>
+        <a href="board.php">principal</a>
     </main>
-    <footer>
+    <footer class="profile-footer">
         <p>Alexandre CAILLER - Elian BOURDU</p>
         <p>Sylouan CORFA - Anaïs TATIBOUËT</p>
         <p>Workshop 2018 - B1</p>

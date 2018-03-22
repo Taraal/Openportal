@@ -2,11 +2,11 @@
 
 $id = $_GET['id'];
 
-    $connect = new PDO("mysql:host=localhost;dbname=workshop2", "root", "");
+$connect = new PDO("mysql:host=localhost;dbname=workshop2;charset=utf8", "root", "");
 
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
 
-    $sql = "SELECT * FROM utilisateurs WHERE Email = ". $_GET['id'] ."";
+    $sql = "SELECT * FROM utilisateurs WHERE id = ". $_GET['id'] ."";
 
     $statement = $connect->prepare($sql);
 
@@ -14,9 +14,14 @@ $id = $_GET['id'];
 
     $statement->execute();
 
-    $row = $statement->fetch();
+    $profile = $statement->fetch();
 
 unset($statement);
+
+$sql2 = "SELECT * FROM enseignants WHERE id_matiere = ".$_GET['id']."";
+$statement2 = $connect->prepare($sql2);
+$statement2->bindParam(':id',$id);
+$statement2->execute();
 
 unset($connect);
 
@@ -27,7 +32,7 @@ unset($connect);
 
 session_start();
 
-if(isset($_SESSION['Email'])) {
+if(isset($_SESSION['id'])) {
 
 ?>
 <!DOCTYPE html>
@@ -56,9 +61,9 @@ if(isset($_SESSION['Email'])) {
             <img src="img/profile/avatar_a-tatibouet.jpg" alt="" class="avatar">
         </div>
         <div class="identity">
-            <h3 class="fisrtname"><?php echo $row['Prenom'] ?></h3>
-            <h3 class="lastname"><?php echo $row['Nom'] ?></h3>
-            <a href="mailto:<?php echo $row['Email']; ?>"><?php echo $row['Email']; ?></a>
+            <h3 class="fisrtname"><?php echo $profile['Prenom'] ?></h3>
+            <h3 class="lastname"><?php echo $profile['Nom'] ?></h3><br>
+            <a href="mailto:<?php echo $profile['Email']; ?>"><?php echo $profile['Email']; ?></a>
         </div>
         <div class="skills">
             <div class="table student">
@@ -81,11 +86,12 @@ if(isset($_SESSION['Email'])) {
                             <th scope="col">Liste des matières</th>
                         </tr>
                         <?php 
-                    while ($a <= 10) {
+                   /* while ($a <= 10) {
                         echo '<tr>
                                 <td>'.$row['intitule'].'</td>
                             </tr>';
-                    }
+                    }*/
+                    unset($connect);
                     ?>
                     </thead>
                 </table>

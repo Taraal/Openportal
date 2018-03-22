@@ -16,6 +16,7 @@ h1,
 h3,
 h4 {
     font-family: 'Aldrich', sans-serif;
+    color: #3d3d3d;
 }
 
 h3 {
@@ -24,6 +25,7 @@ h3 {
 
 h4 {
     font-size: 15px;
+    text-transform: uppercase;
 }
 
 a {
@@ -48,7 +50,7 @@ footer p:last-child {
 
 /*_______________ HEADER _______________ */
 
-#logo {
+#logo, .logo {
     width: 100px;
     margin: 20px;
 }
@@ -89,6 +91,21 @@ form {
 
 .disconnection {
     text-align: right;
+}
+
+.profile_icon, .board_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+}
+
+.board_icon {
+    width: 40px;
+}
+
+.profile_icon {
+    width: 35px;
 }
 
 .disconnection_icon {
@@ -132,20 +149,31 @@ input[type="submit"] {
     text-transform: uppercase;
 }
 
-table {
+table.student,
+table.teacher {
     text-align: center;
     border-collapse: collapse;
-    margin: 0 auto;
+    margin: 0 auto 20px;
+    width: 85%;
 }
 
 table.student {
     border: 1px solid #fe650c;
 }
 
+table.student th {
+    background-color: #fe650c;
+}
+
+table.teacher th {
+    background-color:  #5191ce;
+}
+
 table.student th,
 table.student td {
     font-size: 14px;
     border: 1px solid #fe650c;
+    vertical-align: middle;
 }
 
 table.teacher {
@@ -159,14 +187,33 @@ table.teacher td {
     border: 1px solid #5191ce;
 }
 
+.student h4,
+.teacher h4 {
+    background-color: #3d3d3d;
+    padding: 5px;
+    border-radius: 5px;
+    color: #f5f5f5;
+    width: 85%;
+    margin: 15px auto;
+}
+
 
 /*________________  BOARD  ________________*/
 
-.main-board {
-    padding-bottom: 80%;
+#btn-courses {
+    font-family: 'Aldrich', sans-serif;
+    position: fixed;
+    right: 0;
+    border: 0;
+    background-color: #3d3d3d;
+    color: #f5f5f5;
+    cursor: pointer;
+    padding: 5px 10px;
+    z-index: 5;
+    border-bottom-left-radius: 5px;
 }
 
-#search_courses {
+#categoryfilter {
     border-radius: 5px;
     border: 1px solid #3d3d3d;
     padding: 1px;
@@ -177,12 +224,6 @@ table.teacher td {
 
 #search_submit {
     width: 20px;
-    background-color: transparent;
-    border: none;
-    background-image: url('../img/search_icon.svg');
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    color: transparent;
     display: inline-block;
 }
 
@@ -204,18 +245,13 @@ section h3 {
 }
 
 div.left_list {
-    position: absolute;
-    left: 100px;
-    width: 30%;
+    width: 80%;
     text-align: center;
-    min-height: 100%;
     margin: 10px;
 }
 
 div.right_list {
-    position: absolute;
-    right: 100px;
-    width: 30%;
+    width: 80%;
     text-align: center;
     margin: 10px;
 }
@@ -223,24 +259,38 @@ div.right_list {
 section.courses_followed-list,
 section.courses_taught-list,
 section.courses-list {
-    margin-top: 50px;
     padding: 20px;
     border: 2px solid black;
-    border-radius: 5px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 section.courses_followed-list,
 section.courses_taught-list {
     height: 480px;
+    border-radius: 5px;
+    margin-top: 50px;
 }
 
 section.courses-list {
-    height: 1000px;
+    position: fixed;
+    top: 265px;
+    right: 0;
+    height: 220px;
+    background-color: #fff;
+    width: 100%;
+    z-index: 4;
+    border-right: 0;
+    border-left: 0;
+    padding-top: 50px;
+    display: none;
+}
+
+section.courses-list h3 {
+    display: none;
 }
 
 .course {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     background-color: #3d3d3d;
 }
@@ -281,12 +331,16 @@ section.courses-list {
     color: black;
 }
 
-.chat {
-    text-align: right;
+#search-courses {
+    padding: 0;
 }
+
 
 /*___________ CHAT ___________*/
 
+.chat {
+    text-align: right;
+}
 
 #speach_icon {
     position: fixed;
@@ -303,22 +357,19 @@ section.courses-list {
     right: 0;
     bottom: 0;
     background-color: white;
-    width: 40%;
-    height: 450px;
+    width:100%;
+    height: 100%;
     border: 2px solid #3d3d3d;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
     display: none;
 }
 
 .chat_title {
     background-color: #5191ce;
     padding: 10px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
 }
 
-.receive, .send {
+.receive,
+.send {
     width: 50%;
 }
 
@@ -329,7 +380,7 @@ section.courses-list {
     padding-left: 20px;
 }
 
-.receive{
+.receive {
     position: relative;
     top: 30px;
     left: 50%;
@@ -338,17 +389,17 @@ section.courses-list {
 }
 
 .send-message-container {
-    background-color: #e0e0e0;
+    background-color: #3d3d3d;
     position: fixed;
     margin: 0;
     bottom: 0;
-    width: 40%;
+    width: 100%;
     height: 50px;
     z-index: 4;
 }
 
 #send_msg {
-    width: 85%;
+    width: 75%;
     position: absolute;
     bottom: 5px;
     left: 10px;
@@ -371,10 +422,291 @@ section.courses-list {
     font-size: 12px;
 }
 
-@media only screen and (min-width:1024px){
+
+/*___________ ANIMATIONS  ___________*/
+
+@-webkit-keyframes move {
+    0% {
+        -webkit-transform: translateY(110px);
+        transform: translateY(110px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes move {
+    0% {
+        -webkit-transform: translateY(110px);
+        transform: translateY(110px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); 
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#logo {
+    -webkit-animation-name: spin;
+    animation-name: spin;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    -webkit-animation-direction: normal;
+    animation-direction: normal;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+#header-connection {
+    -webkit-animation-name: appear, move;
+    animation-name: appear, move;
+    -webkit-animation-duration: 1.5s, 1.5s;
+    animation-duration: 1.5s, 1.5s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-delay: 1s, 2s;
+    animation-delay: 1s, 2s;
+    -webkit-animation-direction: normal;
+    animation-direction: normal;
+    -webkit-animation-iteration-count: 1, 1;
+    animation-iteration-count: 1, 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    opacity: 0;
+    -webkit-transform: translateY(110px);
+    -ms-transform: translateY(110px);
+    transform: translateY(110px)
+}
+
+#main-connection {
+    -webkit-animation-name: appear;
+    animation-name: appear;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    -webkit-animation-direction: normal;
+    animation-direction: normal;
+    -webkit-animation-iteration-count: 1, 1;
+    animation-iteration-count: 1, 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    opacity: 0;
+}
+
+
+
+@media only screen and (min-width:1024px) {
+
+    /*______ CONNECTION & REGISTRATION________*/
+
     .connection,
     .Inscription {
         width: 40%;
         margin: 20px auto;
+    }
+
+/*________________ PROFILE  ________________*/
+
+    .student,
+    .teacher {
+        width: 50%;
+    } 
+
+    .student {
+        float: left;
+    }
+
+    .teacher {
+        float: right;
+    }
+
+    
+    table.student,
+    table.teacher {
+        margin: 60px 10px;
+    } 
+
+
+    .student h4 {
+        position: absolute;
+        left:  0;
+        width: 12%;
+        margin-left: 20px;
+    }
+
+    .teacher h4 {
+        position: absolute;
+        right: 0;
+        width: 12%;
+        margin-right: 20px;
+    }
+        
+
+    /*________________ BOARD ________________*/
+
+    div.left_list {
+        float: left;
+        width: 35%;
+        text-align: center;
+        min-height: 100%;
+        margin: 10px 40px;
+    }
+
+    div.right_list {
+        float: right;
+        width: 35%;
+        text-align: center;
+        margin: 10px 40px;
+    }
+
+    #btn-courses {
+        display: none;
+    }
+    
+    section.courses_followed-list,
+    section.courses_taught-list,
+    section.courses-list {
+        margin: 50px 0;
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 5px;
+        overflow-y: auto;
+    }
+
+    section.courses_followed-list,
+    section.courses_taught-list {
+        height: 480px;
+    }
+
+    section.courses-list {
+        position: inherit;
+        height: 1000px;
+        padding: 20px 50px;
+        display: block;
+        background-color: transparent;
+    }
+
+    section.courses-list h3 {
+        display: block;
+    }
+
+    .profile-footer,
+    .board-footer {
+        clear: both;
+    }
+
+    .main-board {
+        padding-bottom: 80%;
+    }
+
+    .chat-window {
+        width:40%;
+        height: 500px;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+    }
+
+    .chat_title {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    #send_msg {
+        width: 30%;
+    }
+
+    .btn-send-msg {
+        background-image: url('../img/chatroom/speech-bubble.svg');
+        background-size: 60px 50px;
+        background-repeat: no-repeat;
+        background-color: #5191ce;
+        border: none;
+        position: absolute;
+        bottom: 5px;
+        left: 28%;
+        width: 60px;
+        height: 38px;
+        padding: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    @keyframes move {
+        0% {
+            -webkit-transform: translateY(200px);
+            transform: translateY(200px)
+        }
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0)
+        }
+    }
+
+   #header-connection {
+        -webkit-animation-name: appear, move;
+        animation-name: appear, move;
+        -webkit-animation-duration: 1.5s, 2s;
+        animation-duration: 1.5s, 2s;
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        -webkit-animation-delay: 1s, 2s;
+        animation-delay: 1s, 2s;
+        -webkit-animation-direction: normal;
+        animation-direction: normal;
+        -webkit-animation-iteration-count: 1, 1;
+        animation-iteration-count: 1, 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+        opacity: 0;
+        -webkit-transform: translateY(200px);
+        -ms-transform: translateY(200px);
+        transform: translateY(200px)
     }
 }
