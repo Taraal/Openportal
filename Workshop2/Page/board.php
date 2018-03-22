@@ -54,7 +54,9 @@ $statement = $connect->query("SELECT * FROM matieres");
             <a href="Myprofile.php"><img src="img/profile-icon.svg" alt="" class="profile_icon"></a>
      </div>
     <main class="main-board">
-    <button id="btn-courses">Compétences</button>
+    <div id="btn-courses">
+       <img src="img/skills-icon.svg" alt="" class="skills_icon">
+    </div>
         <div class="left_list">
             <section class="courses_followed-list">
                 <h3 class="board_title">Mes cours</h3>
