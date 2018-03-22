@@ -8,10 +8,6 @@ body {
     font-family: 'Questrial', sans-serif;
 }
 
-header {
-    margin-top: 20px;
-}
-
 main {
     padding: 10px;
 }
@@ -54,7 +50,7 @@ footer p:last-child {
 
 /*_______________ HEADER _______________ */
 
-#logo {
+#logo, .logo {
     width: 100px;
     margin: 20px;
 }
@@ -497,7 +493,7 @@ section.courses-list h3 {
     animation-play-state: running;
 }
 
-header {
+#header-connection {
     -webkit-animation-name: appear, move;
     animation-name: appear, move;
     -webkit-animation-duration: 1.5s, 1.5s;
@@ -691,7 +687,7 @@ header {
         }
     }
 
-    header {
+   #header-connection {
         -webkit-animation-name: appear, move;
         animation-name: appear, move;
         -webkit-animation-duration: 1.5s, 2s;

@@ -48,7 +48,7 @@ $statement = $connect->query("SELECT * FROM matieres");
         <div class="profile-access">
             <a href="Myprofile.php"><img src="img/profile-icon.svg" alt="" class="profile_icon"></a>
         </div>
-        <img src="img/openportal_logo.svg" alt="OP" id="logo">
+        <img src="img/openportal_logo.svg" alt="OP" class="logo">
         <h1 class="title">OpenPortal</h1>
         <p class="baseline">Osez aller au-delà de vous-même</p>
     </header>

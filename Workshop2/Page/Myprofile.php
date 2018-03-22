@@ -28,7 +28,7 @@ if(isset($_SESSION['email'])) {
         <div class="board-access">
             <a href="board.php"><img src="img/board-icon.svg" alt="" class="board_icon"></a>
         </div>
-        <img src="img/openportal_logo.svg" alt="OP" id="logo">
+        <img src="img/openportal_logo.svg" alt="OP" class="logo">
         <h1 class="title">OpenPortal</h1>
     </header>
     <main>
