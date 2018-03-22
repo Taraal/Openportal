@@ -111,6 +111,7 @@ if(isset($_SESSION['id'])) {
                         <tr>
                             <th scope="col">Liste des matières</th>
                         </tr>
+                    </thead>
                         <?php while ($enseignant = $statement2->fetch()) {
 
                         $sql3 = "SELECT * FROM matieres WHERE id = ".$enseignant['id_matiere']."";
@@ -134,7 +135,6 @@ if(isset($_SESSION['id'])) {
                         $statement2->closeCursor();
 
                         unset($connect);?>
-                    </thead>
                 </table>
             </div>
         </div>
@@ -152,7 +152,7 @@ if(isset($_SESSION['id'])) {
 
 } else {
 
-header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
+    header('location: index.php?error1=Vous devez vous connecter pour voir votre profil');
 
 }
 
