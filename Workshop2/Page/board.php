@@ -111,7 +111,7 @@ $statement = $connect->query("SELECT * FROM matieres");
                     }
                     // Récupération des 50 derniers messages (reçus uniquement)
                     $reponse = $bdd->prepare("SELECT id_message, Prenom, contenu, to_user_id, from_user_id FROM messages as m JOIN utilisateurs as u ON u.id=m.from_user_id WHERE to_user_id = '$id_session[0]' ORDER BY id_message DESC LIMIT 0, 50");
-                    $reponse->execute(array(':id' => $id));
+                    $reponse->execute();
                     $answer = $reponse->fetchAll(PDO::FETCH_ASSOC);
                     
                     
